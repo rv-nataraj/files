@@ -1073,15 +1073,14 @@ $.validator.addMethod("varchar", function(value, element) {
     return this.optional( element ) || /^[\w\d\s\!\@\#\$\%\^\&\*\(\)\ \"\+\?\/\~\-\:\;\=\|\}\{\]\[\,\>\.\,\<]+$/.test(value);    
 }
 , "All char Except ' quotes and \\"); 
-$.validator.addMethod("checkpasswd", function(value, element) {
-    //return this.optional( element ) || /[a-z0-9\\s]+$[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*)/.test(value);    
+$.validator.addMethod("checkpasswd", function(value, element) {   
      return /[A-Z]/.test(value) // has a uppercase letter
        && /\d/.test(value) // has a digit
        && /[\!\@\#\$\%\^\&\*\(\)\ \"\+\?\/\~\-\:\;\=\|\}\{\]\[\,\>\.\,\<]/.test(value)
 }
 , "* A upper case and a special char and a digit must"); 
-$.validator.addMethod("markcheck", function(value, element,param) {
-    //return this.optional( element ) || /[a-z0-9\\s]+$[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*)/.test(value);    
+	
+$.validator.addMethod("markcheck", function(value, element,param) {   
      if((/\d/.test(value) && value<=param && value>=0)||value==="A"){
          return true;
      }
